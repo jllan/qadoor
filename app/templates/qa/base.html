@@ -66,23 +66,27 @@
     {% endif %}
 
 
-    {% if not current_user.is_authenticated %}
     <div id="header-top">
         <section class="container clearfix">
             <nav class="header-top-nav">
-                <ul>
-                    <li><a href="login.html" id="login-panel"><i class="icon-user"></i>登陆</a></li>
-                </ul>
+                {% if current_user.is_authenticated %}
+                   <ul>
+                       <li><a><i class="icon-user"></i>{{ current_user.name }}</a></li>
+                   </ul>
+                {% else %}
+                    <ul>
+                        <li><a href="login.html" id="login-panel"><i class="icon-user"></i>登陆</a></li>
+                    </ul>
+                {% endif %}
             </nav>
-            <!-- <div class="header-search">
+            <div class="header-search">
                 <form>
                     <input type="text" value="Search here ..." onfocus="if(this.value=='Search here ...')this.value='';" onblur="if(this.value=='')this.value='Search here ...';">
                     <button type="submit" class="search-submit"></button>
                 </form>
-            </div>-->
-        </section><!-- End container -->
-    </div><!-- End header-top -->
-    {% endif %}
+            </div>
+            </section>
+        </div>
 
     {% block content %} {% endblock %}
 
