@@ -1,4 +1,4 @@
-{% extends "base.html"%}
+{% extends "qa/base.html"%}
 {% block content %}
     <div class="section-warp ask-me">
         <div class="container clearfix">
@@ -27,7 +27,7 @@
     </div><!-- End section-warp -->
 </div>
 
-{% if current_user.is_authenticated() %}
+{% if current_user.is_authenticated %}
 <section class="container main-content">
     <div class="row">
         <div class="col-md-9">
