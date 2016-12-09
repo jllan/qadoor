@@ -9,7 +9,7 @@ from flask_login import login_user, logout_user, login_required, current_user
 user = Blueprint('user', __name__, url_prefix='/user')
 
 @user.route('/signup', methods=['POST'])
-def signup_user():
+def user_signup():
     try:
         user_instance = User.query.filter(or_(User.name==request.form['name'],
                                               User.email==request.form['email'])
@@ -29,10 +29,12 @@ def signup_user():
         return redirect(url_for('qa.index'))
 
 @user.route('/login', methods=['POST'])
-def login_user():
+def user_login():
     try:
         user_instance = User.query.filter(User.name==request.form['name']).first()
         if user_instance:
+            print(request.form['name'])
+            print(request.form['password'])
             if user_instance.verify_password(request.form['password']):
                 login_user(user_instance)
         return redirect(url_for('qa.index'))
@@ -42,6 +44,6 @@ def login_user():
 
 @user.route('/logout', methods=['GET'])
 @login_required
-def logout_user():
+def user_logout():
     logout_user()
     return redirect(url_for('qa.index'))

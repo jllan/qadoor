@@ -30,7 +30,7 @@
                     <div class="page-content">
                         <h2>登陆</h2>
                         <div class="form-style form-style-3">
-                            <form method="post" action="{{url_for('user.login_user')}}">
+                            <form method="post" action="{{url_for('user.user_login')}}">
                                 <div class="form-inputs clearfix">
                                     <p class="login-text">
                                         <input type="text" name="name" value="Username" onfocus="if (this.value == 'Username') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Username';}">
@@ -84,23 +84,6 @@
     </div><!-- End header-top -->
     {% endif %}
 
-    <header id="header">
-        <section class="container clearfix">
-            <div class="logo"><a href="index.html"><img alt="" src="/static/images/logo75.png"></a></div>
-            <nav class="navigation">
-                <ul>
-                    <li id="nav-index"><a href="{{ url_for('qa.index') }}">首页</a>
-                        <!-- <ul>
-                            <li class="current_page_item"><a href="index.html"></a></li>
-                        </ul> -->
-                    </li>
-                    <li id="nav-ask"><a href="{{ url_for('qa.add_question')}}">提问</a></li>
-                    <li id="nav-question"><a href="{{ url_for('qa.question_info')}}">问题</a></li>
-                </ul>
-            </nav>
-        </section><!-- End container -->
-    </header><!-- End header -->
-
     {% block content %} {% endblock %}
 
 
@@ -129,7 +112,7 @@
         </form>
     </div>
 </div><!-- End signup -->
-<div id="signup-data" url="{{ url_for('user.signup_user')}}"></div>
+<div id="signup-data" url="{{ url_for('user.user_signup')}}"></div>
 {% endif %}
 
 <!-- js -->
@@ -154,6 +137,6 @@
 {% block footer %}
 {% endblock %}
 <!-- End js -->
-</div>
+
 </body>
 </html>
