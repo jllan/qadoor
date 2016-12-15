@@ -85,8 +85,25 @@
                     <button type="submit" class="search-submit"></button>
                 </form>
             </div>
-            </section>
-        </div>
+        </section>
+    </div>
+
+    <header id="header">
+        <section class="container clearfix">
+            <div class="logo"><a href="index.html"><img alt="" src="/static/images/logo75.png"></a></div>
+            <nav class="navigation">
+                <ul>
+                    <li id="nav-index"><a href="{{ url_for('qa.index') }}">首页</a>
+                        <!-- <ul>
+                            <li class="current_page_item"><a href="index.html"></a></li>
+                        </ul> -->
+                    </li>
+                    <li id="nav-ask"><a href="{{ url_for('qa.question_add')}}">提问</a></li>
+                    <li id="nav-question"><a href="{{ url_for('qa.question_info')}}">问题</a></li>
+                </ul>
+            </nav>
+        </section><!-- End container -->
+    </header><!-- End header -->
 
     {% block content %} {% endblock %}
 
